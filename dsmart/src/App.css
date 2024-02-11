@@ -1,0 +1,62 @@
+body {
+  
+  background-color: #ffa8b5;
+}
+
+.navbar {
+  
+  
+  background:  rgb(223, 237, 252);
+
+}
+
+.navbar-dsmart {
+  font-weight: 600;
+  font-size: 30px;
+}
+
+.navbar-text {
+  font-weight: 400;
+}
+
+.navbar-text:hover {
+  color: #67696e;
+}
+
+.navbarshadow {
+  box-shadow: rgba(9, 9, 9, 0.2) 0px 7px 29px 0px;
+}
+
+
+
+
+.position {
+  margin-right: 50px;
+}
+
+.searchbar {
+  width: 400px;
+}
+
+.footerbg {
+  background-color: #282c34;
+}
+
+.footertext {
+  color: aliceblue;
+}
+
+.footershadow {
+  box-shadow: rgba(58, 58, 58, 0.2) 7px 7px 29px 0px;
+}
+
+.footertext {
+  color: white;
+}
+
+
+/*Sign up page*/
+.register-form {
+  margin-right: 50px;
+  margin-left: 50px;
+}
