@@ -1,14 +1,16 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { RiHome2Line } from "react-icons/ri";
-import { useAuth } from '../context/Auth'
+import { useAuth } from '../context/Auth';
+
+
 
 const Navbar = () => {
     const [auth, setAuth] = useAuth();
 
-    const handleLogout=()=>{
+    const handleLogout = () => {
         setAuth({
-            ...auth, user:null, token:''
+            auth, user: null, token: ''
 
         })
         localStorage.removeItem("auth");
@@ -64,23 +66,29 @@ const Navbar = () => {
                         </form>
 
                         {
-                            !auth.user ? (
+                            auth?.user ? (
                                 <>
-                                    <div className="nav-item mx-3 navbar-text">
-                                        <NavLink to='/register' className="nav-link" >Sign Up</NavLink>
+                                    <li className="nav-item dropdown mx-auto navbar-text ">
+                                        <NavLink to='/' className="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            {auth?.user?.name}{/* Display user's name */}
+                                        </NavLink>
+                                        <ul className="dropdown-menu">
+                                            <li><NavLink className="dropdown-item" to={`/dashboard/${auth?.user?.role === 1 ? 'admin' : 'user'}`}>Dashboard</NavLink></li>
+                                            <li><hr className="dropdown-divider" /></li>
+                                            <li><NavLink onClick={handleLogout} to='/login' className="dropdown-item" >Logout</NavLink></li>
+                                        </ul>
+                                    </li>
 
-                                    </div>
-                                    <div className="nav-item mx-3 navbar-text">
-                                        <NavLink to='/login' className="nav-link" >Login</NavLink>
-
-                                    </div>
                                 </>
                             ) : (
                                 <>
-                                    <div className="nav-item mx-3 navbar-text">
-                                        <NavLink  onClick={handleLogout} to='/login' className="nav-link" >Logout</NavLink>
-
+                                    <div className="nav-item mx-auto navbar-text">
+                                        <NavLink to='/register' className="nav-link" >Sign Up</NavLink>
                                     </div>
+                                    <div className="nav-item mx-3 navbar-text">
+                                        <NavLink to='/login' className="nav-link" >Login</NavLink>
+                                    </div>
+
                                 </>
                             )
                         }

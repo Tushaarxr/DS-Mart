@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import Layout from '../components/Layout';
+import Layout from '../../components/Layout';
+
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';//connecting backend to frontend
@@ -15,6 +16,7 @@ const Register = () => {
     const [password, setPassword] = useState("");
     const [phone, setPhone] = useState("");
     const [address, setAddress] = useState("");
+    const [answer, setAnswer] = useState("");
     const [postalcode, setPostalcode] = useState("");
 
     const Navigate=useNavigate();
@@ -24,8 +26,8 @@ const Register = () => {
 
 
         try {
-            const res = await axios.post('http://localhost:8080/api/v1/auth/register', { name, email, password, phone, address,postalcode })
-            console.log({ name, email, password, phone, address,postalcode });
+            const res = await axios.post('http://localhost:8080/api/v1/auth/register', { name, email, password, phone, address,postalcode,answer })
+            console.log({ name, email, password, phone, address,postalcode,answer });
             
             if(res.data.success){
                 toast.success(res.data.message);
@@ -81,6 +83,11 @@ const Register = () => {
                         <div className="form-group mx-2 p-1 my-1">
                             <label htmlFor="exampleInput">Postal Code</label>
                             <input  value={postalcode} onChange={(e)=>setPostalcode(e.target.value)}  type="text" className="form-control" id="exampleInput" required placeholder="Postal Code" />
+
+                        </div>
+                        <div className="form-group mx-2 p-1 my-1">
+                            <label htmlFor="exampleInput">Answer</label>
+                            <input  value={answer} onChange={(e)=>setAnswer(e.target.value)}  type="text" className="form-control" id="exampleInput" required placeholder="Question ofr forgot password" />
 
                         </div>
                         <div className="form-group form-check my-3">
