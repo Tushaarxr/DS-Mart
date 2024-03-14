@@ -17,6 +17,8 @@ import CreateProduct from './pages/Admin/CreateProduct';
 import Users from './pages/Admin/Users';
 import Profile from './pages/user/Profile';
 import Orders from './pages/user/Orders';
+import Products from './pages/Admin/Products';
+import UpdateProduct from './pages/Admin/UpdateProduct';
 
 
 
@@ -39,6 +41,8 @@ function App() {
           <Route path='/dashboard/admin' element={<AdminDashboard />} />
           <Route path='/dashboard/admin/create-category' element={<CreateCategory />} />
           <Route path='/dashboard/admin/create-product' element={<CreateProduct />} />
+          <Route path='/dashboard/admin/product/:slug' element={<UpdateProduct />} />
+          <Route path='/dashboard/admin/products' element={<Products />} />
           <Route path='/dashboard/admin/users' element={<Users />} />
 
         </Route>
