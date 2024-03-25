@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 const Products = () => {
   const [products, setProducts] = useState([]);
-  axios.defaults.baseURL = 'http://localhost:8080';
+  axios.defaults.baseURL ='http://localhost:8080';
   //get all products
 
 
@@ -45,7 +45,7 @@ const Products = () => {
             {products.map(p => (
               <Link key={p._id} to={`/dashboard/admin/product/${p.slug}`} className='productCardStyle'>
                 <div className="card my-3 mx-3" style={{ width: '18rem' }} >
-                  <img src={`/api/v1/product/product-photo/${p._id}`} className="card-img-top" alt={p.name} />
+                  <img src={`http://localhost:8080/api/v1/product/product-photo/${p._id}`} className="card-img-top" alt={p.name} />
                   <div className="card-body">
                     <h3 className="card-title">{p.name}</h3>
                     <p className="card-text">{p.description}</p>

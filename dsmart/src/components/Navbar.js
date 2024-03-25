@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { RiHome2Line } from "react-icons/ri";
 import { useAuth } from '../context/Auth';
+import SearchInput from './Form/SearchInput';
 
 
 
@@ -61,9 +62,8 @@ const Navbar = () => {
                                 </ul>
                             </li>
                         </ul>
-                        <form className="searchbar d-flex position" role="search">
-                            <input className="form-control me-3" type="search" placeholder="Search for Products.." aria-label="Search" />
-                        </form>
+                        <SearchInput/>
+                       
 
                         {
                             auth?.user ? (
